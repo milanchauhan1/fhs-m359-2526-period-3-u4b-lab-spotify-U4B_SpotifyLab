@@ -17,7 +17,7 @@ public class Song {
 
     }
     public String toString(){
-        return String.format("%-10s %-15s %-20s %-25d %-30s" , title, artist, album, releaseYear, genre);
+        return String.format("%-25s %-20s %-25s %-4d %-10s" , title, artist, album, releaseYear, genre);
     }
 
     public int getDurationSeconds() {
