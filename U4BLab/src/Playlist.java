@@ -27,19 +27,19 @@ public class Playlist {
 
     public void readSongs() {
         try {
-            File file = new File("spotify_unique_years_artists.txt");
-            Scanner scan = new Scanner(file);
+
+            Scanner scan = new Scanner(new File("spotify_unique_years_artists.txt"));
 
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
-                String[] parts = line.split(",");
+                String[] diffParts = line.split(",");
 
-                String title = parts[0];
-                String artist = parts[1];
-                String album = parts[2];
-                int duration = Integer.parseInt(parts[3]);
-                int year = Integer.parseInt(parts[4]);
-                String genre = parts[5];
+                String title = diffParts[0];
+                String artist = diffParts[1];
+                String album = diffParts[2];
+                int duration = Integer.parseInt(diffParts[3]);
+                int year = Integer.parseInt(diffParts[4]);
+                String genre = diffParts[5];
 
                 Song s = new Song(title, artist, album, duration, year, genre);
                 songs.add(s);
