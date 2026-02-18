@@ -16,7 +16,7 @@ public class Playlist {
 
     public String toString() {
         String result = "";
-        result += String.format("%-25s %-20s %-25s %-4d %-10s\n", "Title", "Artist", "Album", "Year", "Genre");
+        result += String.format("%-25s %-20s %-25s %-4s %-10s\n", "Title", "Artist", "Album", "Year", "Genre");
         result += "----------------------------------------------------------------------------------\n";
         for (int i = 0; i < songs.size(); i++) {
             result = result + songs.get(i).toString() + "\n";
@@ -28,7 +28,7 @@ public class Playlist {
     public void readSongs() {
         try {
 
-            Scanner scan = new Scanner(new File("spotify_unique_years_artists.txt"));
+            Scanner scan = new Scanner(new File("U4BLab/spotify_unique_years_artists.txt"));
 
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
