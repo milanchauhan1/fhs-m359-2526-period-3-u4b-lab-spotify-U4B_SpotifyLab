@@ -25,10 +25,12 @@ public class Playlist {
         return result;
     }
 
+
+
     public void readSongs() {
         try {
 
-            Scanner scan = new Scanner(new File("U4BLab/spotify_unique_years_artists.txt"));
+            Scanner scan = new Scanner(new File("fhs-m359-2526-period-3-u4b-lab-spotify-U4B_SpotifyLab/U4BLab/spotify_unique_years_artists.txt"));
 
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
@@ -47,6 +49,12 @@ public class Playlist {
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
+        }
+    }
+    public void sortGenre(){
+        for(int i = 0; i < songs.size(); i++){
+            System.out.println("hello");//fix at home for lin search
+
         }
     }
 }

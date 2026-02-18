@@ -1,16 +1,16 @@
-import java.io.File;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class SpotifyTester {
 
     public static int getValidInput(Scanner scan) {
         int response = -1;
-        boolean valid = false;
-        while (!valid) {
+        boolean runs = false;
+        while (!runs) {
             try {
                 response = scan.nextInt();
                 if (response >= 1 && response <= 7) {
-                    valid = true;
+                    runs = true;
                 } else {
                     System.out.print("Invalid option. Enter a number 1-7: ");
                 }
@@ -33,6 +33,7 @@ public class SpotifyTester {
             System.out.println("==== Spotify Menu ====" + "\n" + "1 - Sort Artists (A -> Z)" + "\n2 - Sort Artists (Z -> A)" + "\n3 - Sort By  Year (Oldest -> Newest)" + "\n4 - Sort By  Year (Newest -> Oldest)" + "\n5 - Search By Genre" + "\n6 - Display all songs" + "\n7 - Quit" + "\nEnter Choice (1-7): ");
 
             response = getValidInput(scan);
+
             if(response == 6){
                 System.out.println(playlist);
             } else if (response == 7) {
