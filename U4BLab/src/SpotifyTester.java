@@ -46,6 +46,14 @@ public class SpotifyTester {
                 String genre = scan.nextLine();
                 playlist.sortGenre(genre);
             }
+            else if(response == 1){
+                playlist.sortArtistAz();
+                System.out.println(playlist);
+            }
+            else if(response == 2){
+                playlist.sortArtistZa();
+                System.out.println(playlist);
+            }
 
         }
 

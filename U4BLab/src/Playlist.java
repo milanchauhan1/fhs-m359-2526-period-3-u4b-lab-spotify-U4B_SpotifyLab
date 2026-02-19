@@ -30,7 +30,7 @@ public class Playlist {
     public void readSongs() {
         try {
 
-            Scanner scan = new Scanner(new File("fhs-m359-2526-period-3-u4b-lab-spotify-U4B_SpotifyLab/U4BLab/spotify_unique_years_artists.txt"));
+            Scanner scan = new Scanner(new File("U4BLab/spotify_unique_years_artists.txt"));
 
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
@@ -59,14 +59,28 @@ public class Playlist {
 
         }
     }
-    public void sortArtistAz(String artist){
+    public void sortArtistAz(){
+        for(int i = 0; i < songs.size() - 1; i++){
+            for(int j = i + 1; j < songs.size(); j++ ){
+                if(songs.get(i).getArtist().compareTo(songs.get(j).getArtist()) > 0){
+                    Song temp = songs.get(i);
+                    songs.set(i,songs.get(j));
+                    songs.set(j, temp);
+
+
+                }
+            }
+        }
+    }
+    public void sortArtistZa(){
         for(int i = 0; i < songs.size() - 1; i++){
             for(int j = i + 1; j < songs.size(); j++ ){
                 if(songs.get(i).getArtist().compareTo(songs.get(j).getArtist()) < 0){
-                    String temp = "";
-                    temp = songs.get(i).getArtist();
-                    //songs.set(i, songs.get(j).getArtist());
-                    //songs.set(j,temp);
+                    Song temp = songs.get(i);
+                    songs.set(i,songs.get(j));
+                    songs.set(j, temp);
+
+
                 }
             }
         }
