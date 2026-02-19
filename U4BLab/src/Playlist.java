@@ -59,5 +59,17 @@ public class Playlist {
 
         }
     }
+    public void sortArtistAz(String artist){
+        for(int i = 0; i < songs.size() - 1; i++){
+            for(int j = i + 1; j < songs.size(); j++ ){
+                if(songs.get(i).getArtist().compareTo(songs.get(j).getArtist()) < 0){
+                    String temp = "";
+                    temp = songs.get(i).getArtist();
+                    //songs.set(i, songs.get(j).getArtist());
+                    //songs.set(j,temp);
+                }
+            }
+        }
+    }
 }
 
