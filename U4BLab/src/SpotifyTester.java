@@ -40,6 +40,12 @@ public class SpotifyTester {
                 System.out.println("Thank You For Listening.");
 
             }
+            else if(response == 5){
+                scan.nextLine();
+                System.out.println("Enter genre: ");
+                String genre = scan.nextLine();
+                playlist.sortGenre(genre);
+            }
 
         }
 

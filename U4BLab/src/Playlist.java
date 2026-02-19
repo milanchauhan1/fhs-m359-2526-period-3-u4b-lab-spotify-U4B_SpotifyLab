@@ -51,9 +51,11 @@ public class Playlist {
             System.out.println("File not found");
         }
     }
-    public void sortGenre(){
+    public void sortGenre(String genre){
         for(int i = 0; i < songs.size(); i++){
-            System.out.println("hello");//fix at home for lin search
+            if(songs.get(i).getGenre().toLowerCase().equals(genre.toLowerCase())){
+                System.out.println(songs.get(i).toString());
+            }
 
         }
     }
