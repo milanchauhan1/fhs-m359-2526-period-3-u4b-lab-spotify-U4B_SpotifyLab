@@ -85,5 +85,32 @@ public class Playlist {
             }
         }
     }
+    public void sortByReleaseYearOld() {
+        for (int i = 1; i < songs.size(); i++) {
+            Song currentSong = songs.get(i);
+            int j = i - 1;
+
+            while (j >= 0 && songs.get(j).getReleaseYear() > currentSong.getReleaseYear()) {
+                songs.set(j + 1, songs.get(j));
+                j--;
+            }
+
+            songs.set(j + 1, currentSong);
+        }
+    }
+    public void sortByReleaseYearNew() {
+        for (int i = 1; i < songs.size(); i++) {
+            Song currentSong = songs.get(i);
+            int j = i - 1;
+
+            while (j >= 0 && songs.get(j).getReleaseYear() < currentSong.getReleaseYear()) {
+                songs.set(j + 1, songs.get(j));
+                j--;
+            }
+
+            songs.set(j + 1, currentSong);
+        }
+    }
+
 }
 

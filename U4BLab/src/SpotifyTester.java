@@ -54,6 +54,14 @@ public class SpotifyTester {
                 playlist.sortArtistZa();
                 System.out.println(playlist);
             }
+            else if(response == 3){
+                playlist.sortByReleaseYearOld();
+                System.out.println(playlist);
+            }
+            else if(response == 4){
+                playlist.sortByReleaseYearNew();
+                System.out.println(playlist);
+            }
 
         }
 
