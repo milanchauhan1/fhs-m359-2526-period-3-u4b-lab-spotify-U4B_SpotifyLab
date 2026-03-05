@@ -5,19 +5,20 @@ import java.io.FileNotFoundException;
 
 public class Playlist {
     private ArrayList<Song> songs;
-
+    //initializing arraylist without paramaeter
     public Playlist() {
         songs = new ArrayList<Song>();
     }
-
+    //with parameter constructor
     public Playlist(ArrayList<Song> songs) {
         this.songs = songs;
     }
-
+    //returns formatted concatenated string
     public String toString() {
         String result = "";
         result += String.format("%-25s %-20s %-25s %-4s %-10s\n", "Title", "Artist", "Album", "Year", "Genre");
         result += "----------------------------------------------------------------------------------\n";
+        //add all songs to result iterating through songs
         for (int i = 0; i < songs.size(); i++) {
             result = result + songs.get(i).toString() + "\n";
         }
@@ -26,12 +27,12 @@ public class Playlist {
     }
 
 
-
+    //read in file and use try and catch block in case file is incorrect
     public void readSongs() {
         try {
 
             Scanner scan = new Scanner(new File("fhs-m359-2526-period-3-u4b-lab-spotify-U4B_SpotifyLab/U4BLab/spotify_unique_years_artists.txt"));
-
+            //iterate through all content of file
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
                 String[] diffParts = line.split(",");
@@ -51,6 +52,7 @@ public class Playlist {
             System.out.println("File not found");
         }
     }
+    //no parameters, returns nothing, prints, genre sort, finds if genre of song object is equal to song searched, prints all that match ignoring case
     public void sortGenre(String genre){
         for(int i = 0; i < songs.size(); i++){
             if(songs.get(i).getGenre().toLowerCase().equals(genre.toLowerCase())){
@@ -59,8 +61,10 @@ public class Playlist {
 
         }
     }
+    //selection sort implementation, non adaptive so always looks through all values even when sorted, nested for loop, compareTo
     public void sortArtistAz(){
         for(int i = 0; i < songs.size() - 1; i++){
+            //nested for loop to search through next values
             for(int j = i + 1; j < songs.size(); j++ ){
                 if(songs.get(i).getArtist().compareTo(songs.get(j).getArtist()) > 0){
                     Song temp = songs.get(i);
@@ -72,10 +76,13 @@ public class Playlist {
             }
         }
     }
+    //same selection sort implementation flips sign so it goes reverse, same nested for loop no need for back to front iteration
     public void sortArtistZa(){
         for(int i = 0; i < songs.size() - 1; i++){
+            //nested for loop to search through values in front of i in array
             for(int j = i + 1; j < songs.size(); j++ ){
                 if(songs.get(i).getArtist().compareTo(songs.get(j).getArtist()) < 0){
+                    //stores temp so nothing is overwritten
                     Song temp = songs.get(i);
                     songs.set(i,songs.get(j));
                     songs.set(j, temp);
@@ -85,6 +92,7 @@ public class Playlist {
             }
         }
     }
+    //insertion sort with while loop in for loop, is adapative and will stop early if sorted, checks value of currentsong and compares with songs from list
     public void sortByReleaseYearOld() {
         for (int i = 1; i < songs.size(); i++) {
             Song currentSong = songs.get(i);
@@ -98,6 +106,7 @@ public class Playlist {
             songs.set(j + 1, currentSong);
         }
     }
+    //same insertion sort for loop outside while loop in, flips sign to go opposite order of ascending and descending
     public void sortByReleaseYearNew() {
         for (int i = 1; i < songs.size(); i++) {
             Song currentSong = songs.get(i);
