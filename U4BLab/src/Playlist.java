@@ -28,10 +28,11 @@ public class Playlist {
 
 
     //read in file and use try and catch block in case file is incorrect
+    //adds them to the arraylist uses scanner and split to get each part
     public void readSongs() {
         try {
 
-            Scanner scan = new Scanner(new File("fhs-m359-2526-period-3-u4b-lab-spotify-U4B_SpotifyLab/U4BLab/spotify_unique_years_artists.txt"));
+            Scanner scan = new Scanner(new File("U4BLab/spotify_unique_years_artists.txt"));
             //iterate through all content of file
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
@@ -44,8 +45,8 @@ public class Playlist {
                 int year = Integer.parseInt(diffParts[4]);
                 String genre = diffParts[5];
 
-                Song s = new Song(title, artist, album, duration, year, genre);
-                songs.add(s);
+                Song sObj = new Song(title, artist, album, duration, year, genre);
+                songs.add(sObj);
             }
 
         } catch (FileNotFoundException e) {
@@ -54,11 +55,16 @@ public class Playlist {
     }
     //no parameters, returns nothing, prints, genre sort, finds if genre of song object is equal to song searched, prints all that match ignoring case
     public void sortGenre(String genre){
+        boolean found = false;
         for(int i = 0; i < songs.size(); i++){
             if(songs.get(i).getGenre().toLowerCase().equals(genre.toLowerCase())){
                 System.out.println(songs.get(i).toString());
+                found = true;
             }
 
+        }
+        if(found == false){
+            System.out.println("No songs are in the " + genre + " genre.");
         }
     }
     //selection sort implementation, non adaptive so always looks through all values even when sorted, nested for loop, compareTo
@@ -95,6 +101,7 @@ public class Playlist {
     //insertion sort with while loop in for loop, is adapative and will stop early if sorted, checks value of currentsong and compares with songs from list
     public void sortByReleaseYearOld() {
         for (int i = 1; i < songs.size(); i++) {
+            //insertion sort from class w nested while loop
             Song currentSong = songs.get(i);
             int j = i - 1;
 
@@ -108,6 +115,7 @@ public class Playlist {
     }
     //same insertion sort for loop outside while loop in, flips sign to go opposite order of ascending and descending
     public void sortByReleaseYearNew() {
+        //insertion sort from class
         for (int i = 1; i < songs.size(); i++) {
             Song currentSong = songs.get(i);
             int j = i - 1;
